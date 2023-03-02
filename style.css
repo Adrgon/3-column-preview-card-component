@@ -1,0 +1,181 @@
+/* box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* generic styles */
+
+html {
+  font-size: 0.9375rem;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+section,
+footer {
+  background-color: white;
+  padding: 1.5em;
+}
+
+footer {
+  text-align: center;
+}
+/* classes */
+.container {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* cards */
+
+/* card generic styles */
+.sedan_card,
+.suv_card,
+.luxury_card {
+  padding: 3em;
+  color: white;
+}
+
+/* card colors */
+.sedan_card {
+  background-color: hsl(31, 77%, 52%);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.suv_card {
+  background-color: hsl(184, 100%, 22%);
+}
+.luxury_card {
+  background-color: hsl(179, 100%, 13%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card_heading {
+  font-family: "Big Shoulders Display", sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.card_content {
+  line-height: 1.5;
+}
+
+.card_link {
+  text-decoration: none;
+}
+
+.card_button {
+  background-color: white;
+  padding: 1em 2em;
+  border-radius: 100px;
+  display: inline-block;
+  /* adding a transparent border to the button and then adding a 
+  non-transparent border on the hover/focus states allows for no
+  visible movement shift to occur when hovered/focused */
+  border: 1px solid transparent;
+  transition: background-color, color, border 0.2ms;
+}
+
+.card_button:hover,
+.card_button:focus {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.card_link--sedan {
+  color: hsl(31, 77%, 52%);
+}
+
+.card_link--suv {
+  color: hsl(184, 100%, 22%);
+}
+
+.card_link--luxury {
+  color: hsl(179, 100%, 13%);
+}
+
+@media (min-width: 40rem) {
+  html {
+    font-size: 1.1rem;
+  }
+  .card_button {
+    margin-top: 1.5em;
+  }
+}
+
+@media (min-width: 50rem) {
+  html {
+    font-size: 1rem;
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .row > * {
+    width: 100%;
+  }
+
+  .sedan_card,
+  .suv_card,
+  .luxury_card {
+    padding: 2em 1.5em;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* packs all the items flush to left, prevents buttons from stretching all the way*/
+    align-items: flex-start;
+  }
+
+  .sedan_card {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .luxury_card {
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .card_button {
+    margin-top: 5em;
+  }
+
+  .card_content {
+    /*flex: 1 is equal to flex: 1 1 0 where grow and shrink are set to 1 and basis is set to 0
+     Paragraphs won't cause misalignment shifts between cards by allowing card-content (paragraphs)
+     to grow evenly.  A margin-bottom: auto would also work here. */
+    flex: 1;
+  }
+}
+
+@media (min-width: 70rem) {
+  html {
+    font-size: 1.2rem;
+  }
+
+  .sedan_card,
+  .suv_card,
+  .luxury_card {
+    padding: 4em 2.75em;
+  }
+}
